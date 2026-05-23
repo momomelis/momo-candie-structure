@@ -1,0 +1,17 @@
+{
+  "name": "momo-candie-structure",
+  "version": "1.0.0",
+  "description": "Combined stress load test suite",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --experimental-vm-modules dist/index.js",
+    "test": "npx ts-node src/index.ts",
+    "load-test": "npx ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
+  }
+}
