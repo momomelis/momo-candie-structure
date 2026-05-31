@@ -119,9 +119,10 @@ async function runIteration(
     httpGet(config.httpUrl)
   );
   const httpResults = await Promise.all(httpPromises);
-  httpResults
-    .filter((r) => r.error)
-    .forEach((r) => errors.push(`HTTP: ${r.error}`));
+  httpResults.forEach((r) => {
+    if (r.error) errors.push(`HTTP error: ${r.error}`);
+    else if (r.status < 200 || r.status >= 400) errors.push(`HTTP ${r.status}`);
+  });
 
   return {
     iteration: index,
